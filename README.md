@@ -2,6 +2,14 @@
 
 鼠标位于 Chrome 原生标签页或标签栏时，滚动滚轮切换前后标签。它是一个独立的 Windows 托盘程序，不需要安装 Chrome 扩展。
 
+## 下载
+
+- 推荐下载：[TabWheel-Windows-v0.2.0.zip](releases/v0.2.0/TabWheel-Windows-v0.2.0.zip)
+- 单独下载：[TabWheel.exe](releases/v0.2.0/TabWheel.exe)
+- 文件校验：[SHA256SUMS.txt](releases/v0.2.0/SHA256SUMS.txt)
+
+下载 ZIP 后解压，双击 `TabWheel.exe` 即可运行，不需要安装 Chrome 扩展。
+
 ## 使用
 
 1. 双击 `TabWheel.exe`。

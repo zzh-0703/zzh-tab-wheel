@@ -16,9 +16,9 @@ using Microsoft.Win32;
 [assembly: AssemblyDescription("Scroll over the Chrome tab strip to switch tabs")]
 [assembly: AssemblyCompany("TabWheel")]
 [assembly: AssemblyProduct("TabWheel")]
-[assembly: AssemblyCopyright("Copyright 2026")]
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyFileVersion("0.2.0.0")]
+[assembly: AssemblyCopyright("Copyright (c) 2026 Zhang Zihao (章梓昊)")]
+[assembly: AssemblyVersion("0.2.1.0")]
+[assembly: AssemblyFileVersion("0.2.1.0")]
 
 namespace TabWheel
 {
@@ -322,7 +322,7 @@ namespace TabWheel
                 "向上滚：上一个标签\r\n\r\n" +
                 "程序只在前台 Chrome/Edge/Brave/Vivaldi/Opera 的顶部标签栏响应，普通网页区域不会拦截滚轮。" +
                 "游戏或其他程序位于前台时，鼠标监听会自动休眠。双击托盘图标可以快速启用或暂停。\r\n\r\n" +
-                "TabWheel 0.2.0 · 不需要安装 Chrome 扩展",
+                "TabWheel 0.2.1 · 不需要安装 Chrome 扩展",
                 "TabWheel 使用说明",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);

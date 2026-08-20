@@ -1,58 +1,57 @@
+<p align="right"><a href="README_zh-CN.md">简体中文</a> · <strong>English</strong></p>
+
 <p align="center">
-  <img src="assets/enabled-png/icon128.png" width="96" alt="TabWheel 图标">
+  <img src="assets/enabled-png/icon128.png" width="96" alt="TabWheel icon">
 </p>
 
 <h1 align="center">TabWheel for Windows</h1>
 
 <p align="center">
-  在 Chromium 浏览器的<strong>原生顶部标签栏</strong>滚动鼠标滚轮，快速切换前后标签页。
+  Switch Chromium tabs by scrolling over the browser's <strong>native top tab strip</strong>.
   <br>
-  Scroll over the native top tab strip to switch Chromium tabs.
+  No browser extension required.
 </p>
 
 <p align="center">
-  <a href="releases/v0.2.0/TabWheel-Windows-v0.2.0.zip"><img alt="Version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-6750A4"></a>
-  <img alt="Windows 10/11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
+  <a href="https://github.com/zzh-0703/zzh-tab-wheel/releases/latest"><img alt="Latest release" src="https://img.shields.io/badge/release-v0.2.1-6750A4"></a>
+  <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-2EA44F"></a>
-  <img alt="No Chrome extension" src="https://img.shields.io/badge/Chrome%20extension-not%20required-4285F4">
+  <img alt="Chrome extension not required" src="https://img.shields.io/badge/Chrome%20extension-not%20required-4285F4">
 </p>
 
 <p align="center">
-  <strong><a href="releases/v0.2.0/TabWheel-Windows-v0.2.0.zip">下载 ZIP</a></strong>
-  · <a href="releases/v0.2.0/TabWheel.exe">单独下载 EXE</a>
-  · <a href="releases/v0.2.0/SHA256SUMS.txt">SHA-256 校验</a>
+  <strong><a href="https://github.com/zzh-0703/zzh-tab-wheel/releases/download/v0.2.1/TabWheel-Windows-v0.2.1.zip">Download ZIP</a></strong>
+  · <a href="https://github.com/zzh-0703/zzh-tab-wheel/releases/download/v0.2.1/TabWheel.exe">Download EXE</a>
+  · <a href="releases/v0.2.1/SHA256SUMS.txt">SHA-256 checksums</a>
 </p>
 
-## 为什么使用 TabWheel
+<p align="center">
+  <img src="assets/readme/tabwheel-demo.gif" width="900" alt="Scrolling over Chrome's top tab strip switches tabs">
+</p>
 
-- **必须位于标签栏才生效**：网页、地址栏和普通应用中的滚轮行为不受影响。
-- **不需要 Chrome 扩展**：它是一个独立的 Windows 托盘程序。
-- **离开浏览器自动休眠**：游戏或其他程序在前台时会卸载鼠标钩子，返回浏览器后自动恢复。
-- **状态一眼可见**：启用时为蓝紫色双箭头，主动停用时为灰色斜杠图标。
-- **针对高频滚轮优化**：标签栏识别缓存约 50ms，标签切换间隔限制为 120ms。
+## Why TabWheel?
 
-## 快速开始
+- **Works only over the top tab strip.** Scrolling on web pages, the address bar, games, and other applications is left untouched.
+- **No Chrome extension.** TabWheel is a standalone Windows tray utility.
+- **Sleeps outside supported browsers.** The low-level mouse hook is removed while a game or another application is in the foreground and restored when you return.
+- **Clear tray state.** A blue-purple icon means enabled; a gray slashed icon means manually disabled.
+- **Designed for high-rate wheels.** Tab-strip detection is cached for about 50 ms and tab switching is limited to one action every 120 ms.
 
-1. 下载并解压 [TabWheel-Windows-v0.2.0.zip](releases/v0.2.0/TabWheel-Windows-v0.2.0.zip)。
-2. 双击 `TabWheel.exe`。
-3. 把鼠标移动到浏览器顶部的标签页或标签栏空白处。
-4. 向下滚切到下一个标签，向上滚切到上一个标签。
+## Quick start
+
+1. Download and extract [TabWheel-Windows-v0.2.1.zip](https://github.com/zzh-0703/zzh-tab-wheel/releases/download/v0.2.1/TabWheel-Windows-v0.2.1.zip).
+2. Run `TabWheel.exe`.
+3. Move the pointer over a browser tab or an empty part of the top tab strip.
+4. Scroll down for the next tab or up for the previous tab.
+
+Right-click the tray icon to enable or disable TabWheel, reverse the direction, configure startup with Windows, or exit. Double-click the icon to quickly toggle the enabled state.
 
 > [!NOTE]
-> 当前版本尚未进行代码签名，Windows SmartScreen 可能显示“未知发布者”。你可以从源码自行构建，并用仓库提供的 SHA-256 文件校验下载内容。
+> The executable is not code-signed yet, so Windows SmartScreen may show an "Unknown publisher" warning. You can verify the SHA-256 checksums or build the executable directly from source.
 
-## 使用和托盘状态
+## Supported browsers
 
-右键系统托盘里的 TabWheel 图标，可以启用/停用功能、反转滚动方向、设置开机启动或退出。双击托盘图标可快速切换启用状态。
-
-| 状态 | 图标 | 行为 |
-| --- | --- | --- |
-| 已启用 | <img src="assets/enabled-png/icon32.png" width="24" alt="已启用"> | 浏览器在前台时工作；离开浏览器自动休眠 |
-| 已停用 | <img src="assets/disabled-png/icon32.png" width="24" alt="已停用"> | 用户主动停用，不监听前台窗口或鼠标 |
-
-### 支持的浏览器
-
-| 浏览器 | 标准水平顶部标签栏 |
+| Browser | Standard horizontal top tab strip |
 | --- | :---: |
 | Google Chrome | ✅ |
 | Microsoft Edge | ✅ |
@@ -60,85 +59,75 @@
 | Vivaldi | ✅ |
 | Opera | ✅ |
 
-## 安全边界
+Vertical tabs are not supported in the current release.
 
-- 只监听鼠标滚轮，不记录按键、网页内容、标签标题或网址。
-- 只有受支持浏览器位于前台时才安装鼠标滚轮钩子；游戏和其他应用在前台时不会接收滚轮回调。
-- 浏览器内只有鼠标在顶部标签栏时才拦截滚轮。
-- 切换动作通过浏览器原生的 `Ctrl+PageUp` / `Ctrl+PageDown` 快捷键完成。
-- 设置仅保存在 `%LocalAppData%\TabWheel\settings.ini`。
-- 开机启动由用户在托盘菜单中主动启用，写入当前用户的 Windows `Run` 项。
+## Tray states
 
-## 识别方式
+| State | Icon | Behavior |
+| --- | --- | --- |
+| Enabled | <img src="assets/enabled-png/icon32.png" width="24" alt="Enabled"> | Active while a supported browser is in the foreground; automatically sleeps elsewhere |
+| Disabled | <img src="assets/disabled-png/icon32.png" width="24" alt="Disabled"> | Manually disabled; foreground and mouse hooks are removed |
 
-程序优先通过 Windows Accessibility (`IAccessible`) 判断鼠标下方是否为“页面标签”控件。标签栏空白处没有独立控件，因此会使用浏览器窗口顶部 48 个逻辑像素作为兼容区域，并排除地址栏按钮、文本框和右上角窗口按钮区域。
+## Privacy and safety boundaries
 
-相同鼠标位置的标签栏识别结果会短暂缓存 50ms，高速滚轮时不会为每个事件重复调用 Accessibility。标签切换间隔限制为 120ms，最多约 8 次/秒。
+- Listens only for mouse-wheel events; it does not record keys, page content, tab titles, or URLs.
+- Installs the mouse-wheel hook only while a supported browser is in the foreground.
+- Consumes the wheel event only when the pointer is over the native top tab strip.
+- Switches tabs with the browser's native `Ctrl+PageUp` and `Ctrl+PageDown` shortcuts.
+- Stores settings only in `%LocalAppData%\TabWheel\settings.ini`.
+- Adds the current executable to the current user's Windows `Run` entry only when startup is explicitly enabled from the tray menu.
 
-## 性能
+## How detection works
 
-以下数据来自一台 12 逻辑处理器的测试机器：
+TabWheel first uses Windows Accessibility (`IAccessible`) to determine whether the pointer is over a page-tab control. Empty tab-strip space has no dedicated accessibility element, so a small fallback region at the top of the browser window is used while excluding address-bar controls and window buttons.
 
-| 场景 | TabWheel 测试结果 |
+Results for the same pointer position are cached for roughly 50 ms. Tab switching is throttled to 120 ms, which limits the trigger rate to about eight switches per second.
+
+## Performance
+
+Measurements below were taken on a test machine with 12 logical processors:
+
+| Scenario | Observed TabWheel result |
 | --- | --- |
-| 空闲 | CPU 增量为 0 |
-| 非浏览器前台，3000 次合成滚轮事件 | 鼠标钩子处于卸载状态，CPU 增量为 0 |
-| 浏览器标签栏高速滚动 | 约 50ms 识别缓存，最多约 8 次标签切换/秒 |
+| Idle | CPU delta at the measurement floor |
+| 3,000 synthetic wheel events while a non-browser app is foreground | Mouse hook unloaded; CPU delta at the measurement floor |
+| High-rate scrolling over a browser tab strip | ~50 ms detection cache and at most ~8 tab switches per second |
 
-CPU 时间的累计数值会随历史使用增加，但实时 CPU 占用不会因此逐渐升高。本程序没有随滚轮事件持续增长的队列或缓存。
+Accumulated process CPU time naturally increases over the lifetime of any process; it does not mean the real-time CPU rate grows over time. TabWheel has no event queue or cache that grows with wheel usage.
 
-## 系统要求
+## System requirements
 
-- Windows 10/11；
-- .NET Framework 4.8（Windows 10/11 通常已内置）；
-- 标准水平顶部标签栏。
+- Windows 10 or Windows 11
+- .NET Framework 4.8, normally included with supported Windows versions
+- A standard horizontal top tab strip
 
-## 已知限制
+## Build from source
 
-- Chrome 垂直标签页不在当前版本支持范围内。
-- 这是未签名的开发测试版，Windows SmartScreen 可能提示“未知发布者”。正式商业发布应购买代码签名证书并对安装包签名。
-- 某些深度修改界面的 Chromium 浏览器主题可能需要调整顶部兼容区域。
-
-## 构建
-
-在 64 位 Windows PowerShell 中运行：
+Run the following command in 64-bit Windows PowerShell:
 
 ```powershell
 .\build.ps1 -OutputDirectory .\dist
 ```
 
-构建使用 Windows 自带的 .NET Framework C# 编译器，不下载第三方依赖。
+The build uses the .NET Framework C# compiler included with Windows and downloads no third-party dependencies.
 
-## 项目文件
+Run the built-in checks with:
 
-```text
-Program.cs            主程序源码
-build.ps1             Windows 构建脚本
-assets/               托盘与程序图标
-tests/StressWheel.ps1 滚轮压力测试脚本
-releases/v0.2.0/      可直接运行的发布文件
+```powershell
+.\dist\TabWheel.exe --self-test
+.\dist\TabWheel.exe --smoke-test
+.\dist\TabWheel.exe --state-smoke-test
 ```
 
-## 反馈与贡献
+## Contributing and security
 
-- 发现问题或希望支持其他浏览器界面，请提交 [Issue](https://github.com/zzh-0703/zzh-tab-wheel/issues)。
-- 提交代码前，请确认没有改变“仅在顶部标签栏拦截滚轮”的安全边界。
-- 中国大陆用户也可以访问 [Gitee 镜像](https://gitee.com/zhang-zihao990703/zzh-tab-wheel)。
-
-<details>
-<summary><strong>English summary</strong></summary>
-
-TabWheel is a lightweight Windows tray utility that switches Chromium tabs when you scroll over the browser's native top tab strip. It does not require a Chrome extension and does not intercept scrolling over web pages or the address bar.
-
-- Supports Chrome, Edge, Brave, Vivaldi, and Opera.
-- Automatically removes the mouse hook while games or other applications are in the foreground.
-- Scroll down for the next tab and up for the previous tab; direction can be reversed from the tray menu.
-- Download the ready-to-run [v0.2.0 ZIP](releases/v0.2.0/TabWheel-Windows-v0.2.0.zip), or build it with `build.ps1`.
-
-</details>
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a change.
+- Use the [bug report](https://github.com/zzh-0703/zzh-tab-wheel/issues/new?template=bug-report.yml) or [feature request](https://github.com/zzh-0703/zzh-tab-wheel/issues/new?template=feature-request.yml) form.
+- Do not disclose security vulnerabilities in a public issue. Follow [SECURITY.md](SECURITY.md) to report them privately.
+- A mainland China mirror is available on [Gitee](https://gitee.com/zhang-zihao990703/zzh-tab-wheel).
 
 ## License
 
 Copyright © 2026 Zhang Zihao (章梓昊).
 
-This project is licensed under the [MIT License](LICENSE).
+TabWheel is released under the [MIT License](LICENSE).

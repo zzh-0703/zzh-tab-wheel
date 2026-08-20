@@ -1,0 +1,17 @@
+# Build outputs
+dist/
+dist-*/
+build/
+artifacts/
+
+# Visual Studio and compiler files
+.vs/
+*.user
+*.suo
+*.pdb
+*.log
+*.tmp
+
+# Local test results
+TestResults/
+*.trx

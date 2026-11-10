@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "TabWheel Video",
+  "version": "1.0.0",
+  "description": "新标签页打开后，静音播放视频并滚动到播放器。",
+  "minimum_chrome_version": "102",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "optional_host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "TabWheel Video",
+    "default_popup": "popup.html"
+  }
+}

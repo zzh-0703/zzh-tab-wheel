@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TabWheel Video</title>
+    <style>
+        :root { color-scheme: light dark; }
+        body { width: 270px; margin: 16px; font: 14px/1.5 system-ui, sans-serif; }
+        h1 { font-size: 16px; margin: 0 0 8px; }
+        label { display: flex; align-items: center; gap: 6px; }
+        p { margin: 8px 0; overflow-wrap: anywhere; }
+        #site, #hint { color: GrayText; }
+        #status:empty { display: none; }
+    </style>
+    <script type="module" src="popup.js"></script>
+</head>
+<body>
+    <h1>TabWheel Video</h1>
+    <p id="site"></p>
+    <label>
+        <input id="enabled" type="checkbox" disabled>
+        在此站点自动播放新标签页视频
+    </label>
+    <p id="hint">先静音再播放，并滚动到播放器。需要声音时，可以在播放器里取消静音。</p>
+    <p id="status" role="status"></p>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <p align="center">
   Switch Chromium tabs by scrolling over the browser's <strong>native top tab strip</strong>.
   <br>
-  No browser extension required.
+  Tab switching runs in a standalone Windows tray utility.
 </p>
 
 <p align="center">
@@ -32,7 +32,7 @@
 ## Why TabWheel?
 
 - **Works only over the top tab strip.** Scrolling on web pages, the address bar, games, and other applications is left untouched.
-- **No Chrome extension.** TabWheel is a standalone Windows tray utility.
+- **Standalone Windows tray utility.** Run `TabWheel.exe` to start switching tabs with the wheel.
 - **Sleeps outside supported browsers.** The low-level mouse hook is removed while a game or another application is in the foreground and restored when you return.
 - **Clear tray state.** A blue-purple icon means enabled; a gray slashed icon means manually disabled.
 - **Designed for high-rate wheels.** Tab-strip detection is cached for about 50 ms and tab switching is limited to one action every 120 ms.
@@ -48,6 +48,15 @@ Right-click the tray icon to enable or disable TabWheel, reverse the direction, 
 
 > [!NOTE]
 > The executable is not code-signed yet, so Windows SmartScreen may show an "Unknown publisher" warning. You can verify the SHA-256 checksums or build the executable directly from source.
+
+## Optional video extension for new tabs
+
+1. Get the source code. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
+2. Turn on **Developer mode**, select **Load unpacked**, and choose the [extension](extension/) folder.
+3. Visit the site, open **TabWheel Video**, and enable 「在此站点自动播放新标签页视频」 to grant access to that site.
+4. Right-click a link and open it in a new tab. The extension mutes the largest visible video, scrolls to its player, and requests playback in the background. DPlayer preroll runs as usual. Use the player's volume control to unmute.
+
+The extension starts off and saves access per site. Clear the checkbox to turn off autoplay for future tabs on that site. It handles the first top-level page load in a new tab and supports native HTML5 video and common page players. The browser may wait until you switch to the tab before advancing the video. Embedded iframe players and players that require a real click may need manual playback.
 
 ## Supported browsers
 
@@ -68,7 +77,7 @@ Vertical tabs are not supported in the current release.
 | Enabled | <img src="assets/enabled-png/icon32.png" width="24" alt="Enabled"> | Active while a supported browser is in the foreground; automatically sleeps elsewhere |
 | Disabled | <img src="assets/disabled-png/icon32.png" width="24" alt="Disabled"> | Manually disabled; foreground and mouse hooks are removed |
 
-## Privacy and safety boundaries
+## Privacy and safety boundaries for the Windows tray utility
 
 - Listens only for mouse-wheel events; it does not record keys, page content, tab titles, or URLs.
 - Installs the mouse-wheel hook only while a supported browser is in the foreground.

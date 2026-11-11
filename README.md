@@ -54,9 +54,9 @@ Right-click the tray icon to enable or disable TabWheel, reverse the direction, 
 1. Get the source code. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
 2. Turn on **Developer mode**, select **Load unpacked**, and choose the [extension](extension/) folder.
 3. Visit the site, open **TabWheel Video**, and enable 「在此站点自动播放新标签页视频」 to grant access to that site.
-4. Right-click a link and open it in a new tab. The extension mutes the largest visible video, scrolls to its player, and requests playback in the background. DPlayer preroll runs as usual. Use the player's volume control to unmute.
+4. Right-click a link and open it in a new tab. The extension mutes the largest visible video, opens the player's web fullscreen mode, scrolls to it, and requests playback in the background. DPlayer preroll runs as usual. Use the player's volume control to unmute.
 
-The extension starts off and saves access per site. Clear the checkbox to turn off autoplay for future tabs on that site. It handles the first top-level page load in a new tab and supports native HTML5 video and common page players. The browser may wait until you switch to the tab before advancing the video. Embedded iframe players and players that require a real click may need manual playback.
+The extension starts off and saves access per site. Clear the checkbox to turn off autoplay for future tabs on that site. It handles the first top-level page load in a new tab and supports native HTML5 video and common page players. When a player has no web fullscreen control, the page keeps its original layout. The browser may wait until you switch to the tab before advancing the video. Embedded iframe players and players that require a real click may need manual playback.
 
 ## Supported browsers
 

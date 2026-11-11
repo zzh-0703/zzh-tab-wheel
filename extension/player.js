@@ -15,6 +15,13 @@ export function autoplayVideo(expectedUrl) {
         "button[aria-label='Play' i]",
         "button[aria-label='播放']",
     ].join(", ");
+    const webFullscreenControls = [
+        ".dplayer-full-in-icon",
+        "[aria-label='网页全屏']",
+        "[title='网页全屏']",
+        "[data-balloon='网页全屏']",
+        "[data-balloon='Web fullscreen']",
+    ].join(", ");
 
     let scanTimer;
     const observer = new MutationObserver(() => {
@@ -50,9 +57,10 @@ export function autoplayVideo(expectedUrl) {
         }
 
         stopLooking();
-        const { video, player, button } = target;
+        const { video, player, button, webFullscreenButton } = target;
         video.muted = true;
         player.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+        openWebFullscreen(player, webFullscreenButton);
 
         const hasPreroll = player.classList.contains("dplayer-pre-playing");
         if (player.matches(".dplayer") && (video.paused || hasPreroll)) {
@@ -80,19 +88,29 @@ export function autoplayVideo(expectedUrl) {
             }
 
             const player = video.closest(playerSelector);
-            const button = Array.from((player || video.parentElement).querySelectorAll(playControls))
+            const controls = player || video.parentElement;
+            const button = Array.from(controls.querySelectorAll(playControls))
                 .find(control => !control.closest("a, [disabled], [aria-disabled='true']") &&
                     control.getClientRects().length > 0 &&
                     getComputedStyle(control).visibility === "visible");
+            const webFullscreenButton = controls.querySelector(webFullscreenControls);
             if (!button && !video.currentSrc && !video.srcObject &&
                 !video.getAttribute("src") && !video.querySelector("source[src]")) {
                 continue;
             }
 
-            best = { video, player: player || video, button };
+            best = { video, player: player || video, button, webFullscreenButton };
             largestArea = area;
         }
         return best;
+    }
+
+    function openWebFullscreen(player, button) {
+        if (!button || player.classList.contains("dplayer-fulled")) {
+            return;
+        }
+
+        button.click();
     }
 
     function playMuted(video) {
